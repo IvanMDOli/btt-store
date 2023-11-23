@@ -1,10 +1,10 @@
 import React from 'react'
-import CartWidget from './CartWidget'
+import { CartWidget } from './CartWidget'
 import '../styles/navbar.css'
 import logoStore from '../assets/BackToTheStore.png'
 import carrito from '../assets/carrito.png'
 
-function NavBar() {
+export const NavBar = () => {
     return (
         <div className='nav-bar'>
             <div className='logo'>
@@ -25,5 +25,3 @@ function NavBar() {
         </div>
     )
 }
-
-export default NavBar;

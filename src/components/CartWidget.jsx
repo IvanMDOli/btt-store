@@ -1,11 +1,9 @@
 import React from 'react'
 
-function CartWidget() {
+export const CartWidget = () => {
     return (
         <>
         
         </>
     )
 }
-
-export default CartWidget;
