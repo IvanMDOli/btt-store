@@ -47,7 +47,7 @@
         align-items: center;
     }
     .botones-nav li{
-        margin: 0px 15px;
+        margin: 0px 20px;
     }
     .botones-principales {
         display: flex;
@@ -71,6 +71,11 @@
     justify-content: space-around;
 
 }
+
+.nav-bar nav ul:nth-child(2) {
+    margin: 13px;
+}
+
 
 .botones-nav {
     display: flex;
@@ -138,9 +143,4 @@
 .logo img {
     width: 300px;
     user-select: none;
-}
-
-.carrito {
-    width: 30px;
-    margin: 10px;
 }

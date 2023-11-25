@@ -4,7 +4,7 @@ import '../styles/itemcount.css'
 
 export const ItemCount = ({ carrito, setCarrito }) => {
 
-    const [count, setCount] = useState(0);
+    let [count, setCount] = useState(0);
 
     const contadorCarrito = (e) => {
 

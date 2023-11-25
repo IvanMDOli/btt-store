@@ -1,0 +1,10 @@
+.notificacion-carrito {
+    position: absolute;
+    text-align: center;
+    background-color: red;
+    color: white;
+    font-size: 0.8rem;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+}
