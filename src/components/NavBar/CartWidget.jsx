@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/cartwidget.css'
+import './cartwidget.scss'
 import { Icon } from '@iconify/react'
 
 export const CartWidget = () => {

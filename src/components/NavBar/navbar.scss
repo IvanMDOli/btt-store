@@ -1,0 +1,144 @@
+/*Tengo dudas sobre como trabajar en el diseño para que la app sea responsive,
+no se si esta es la forma correcta.*/
+
+@media screen and (min-width: 1500px) {
+    .header {
+        align-items: end;
+
+        .botones-nav li{
+            margin: 0px 45px;
+        }
+
+        .botones-principales {
+            display: flex;
+        }
+    }
+}
+
+@media screen and (max-width: 1499px) {
+    .header {
+        align-items: end;
+
+        .botones-nav li{
+            margin: 0px 35px;
+        }
+
+        .botones-principales {
+            display: block;
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+
+        .botones-nav li{
+            margin: 0px 35px;
+        }
+
+        .botones-principales {
+            display: flex;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        min-width: 400px;
+
+        .nav-bar{
+            flex-wrap: wrap;
+            flex-direction: row-reverse;
+            align-items: center;
+
+            .botones-nav li{
+                margin: 0px 20px;
+            }
+            .botones-principales {
+                display: flex;
+            }
+        }
+    }
+}
+
+.header {
+    background-color: #ff941b;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+    box-shadow: 0px 1px 10px 1px aqua;
+    background-image: url('../../assets/patron.png');
+
+    .nav-bar {
+        width: 65%;
+        display: flex;
+        align-items: end;
+        justify-content: space-around;
+
+        ul:nth-child(2) {
+            margin: 13px;
+        }
+
+        .botones-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            margin: 0px 10px;
+            margin-bottom: 10px;
+
+            li {
+                text-align: center;
+                min-width: 65px;
+                cursor: pointer;
+                color: rgb(44, 44, 44, 0.8);
+                transition: 0.3s;
+                list-style: none;
+                user-select: none;
+
+                &:hover {
+                    color: rgb(0, 0, 0);
+                    text-shadow: 0px 0px 10px rgb(255, 255, 255);
+                }
+            }
+        }
+
+        .botones-principales {
+            align-items: center;
+            justify-content: space-between;
+
+            li{
+                width: 100px;
+                height: 45px;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                background-color: rgb(44, 44, 44);
+                border-radius: 25px;
+                margin:15px;
+                transition: 0.3s;
+                border: 1px solid rgba(0, 255, 255, 0);
+                cursor: pointer;
+                list-style: none;
+                user-select: none;
+                color: #fffbe6;
+
+                &:hover {
+                    border: 1px solid rgba(0, 255, 255, 0.829);
+                    text-shadow: 0px 0px 10px aqua;
+                }
+            }
+        }
+    }
+
+    .logo img {
+        width: 300px;
+        user-select: none;
+    }
+}

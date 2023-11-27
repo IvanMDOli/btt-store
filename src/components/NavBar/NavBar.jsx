@@ -1,16 +1,16 @@
 import React from 'react'
 import { CartWidget } from './CartWidget'
-import '../styles/navbar.css'
-import logoStore from '../assets/BackToTheStore.png'
+import './navbar.scss'
+import logoStore from '../../assets/BackToTheStore.png'
 
 
 export const NavBar = () => {
     return (
-        <header className='nav-bar'>
+        <header className='header'>
             <div className='logo'>
                 <img src={logoStore} alt="BackToTheStore Logo" />
             </div>
-            <nav>
+            <nav className='nav-bar'>
                 <ul className='botones-nav'>
                     <li>Electrodomesticos</li>
                     <li>Vehiculos</li>

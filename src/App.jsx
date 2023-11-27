@@ -1,21 +1,17 @@
-import { useState } from 'react';
-import { NavBar } from './components/NavBar.jsx'
-import { ItemCount } from './components/ItemCount.jsx'
-import './styles/App.css'
+import { NavBar } from './components/NavBar/NavBar.jsx'
+import { ItemContainer } from './components/ItemContainer/ItemContainer.jsx';
+import { Footer } from './components/Footer/Footer.jsx'
+import './App.scss'
 
 function App() {
-
-  const [carrito, setCarrito] = useState([]);
 
   return (
     <>
     <NavBar />
-    <ItemCount carrito={carrito} setCarrito={setCarrito} />
-    <ul>
-      {carrito.map((item, index) => (
-                      <li key={index}>{item.cantidad}</li>
-      ))}
-    </ul>
+    <main className='main'>
+      <ItemContainer />
+      <Footer />
+    </main>
     </>
   )
 }

@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import React from 'react'
-import '../styles/itemcount.css'
+import './itemcount.scss'
 
 export const ItemCount = ({ carrito, setCarrito }) => {
 
     let [count, setCount] = useState(0);
+    
+    /* Para el contador combiene tener 2 funciones separadas (suma y resta) 
+    o se puede tener con un condicional como está hecho?*/
 
     const contadorCarrito = (e) => {
 
@@ -18,21 +21,16 @@ export const ItemCount = ({ carrito, setCarrito }) => {
     }
 
     const agregarAlCarrito = () => {
-        const newItem = {
-            cantidad: count,
-        }
-        setCarrito([...carrito, newItem]);
-
-        setCount(0);
+        console.log(count);
     }
 
     return (
-        <div className='contador'>
+        <div className='counter'>
             <h5>Nombre producto</h5>
-            <div>
-                <button value="+" onClick={contadorCarrito} className='contador-boton'>+</button>
-                <input type="number" value={count} readOnly/>
-                <button value="-" onClick={contadorCarrito} className='contador-boton'>-</button>
+            <div className='counter-inputs'>
+                <button value="+" onClick={contadorCarrito} className='counter-button'>+</button>
+                <input className='counter-display' type="number" value={count} readOnly/>
+                <button value="-" onClick={contadorCarrito} className='counter-button'>-</button>
             </div>
             <button onClick={agregarAlCarrito} className='agregar-carrito-boton'>Agregar al carrito</button>
         </div>
