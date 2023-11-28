@@ -2,7 +2,7 @@ import { useState } from 'react';
 import React from 'react'
 import './itemcount.scss'
 
-export const ItemCount = ({ carrito, setCarrito }) => {
+export const ItemCount = () => {
 
     let [count, setCount] = useState(0);
     
