@@ -1,36 +1,46 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import React from 'react'
 import './itemcount.scss'
 
-export const ItemCount = () => {
+export const ItemCount = ( { stock, initial = 1, onAdd } ) => {
 
-    let [count, setCount] = useState(0);
+    let [count, setCount] = useState(initial);
+    let [addToCart, setAddToCart] = useState(false);
     
-    /* Para el contador combiene tener 2 funciones separadas (suma y resta) 
-    o se puede tener con un condicional como está hecho?*/
 
-    const contadorCarrito = (e) => {
+    const sumarCarrito = () => {
 
-        if (e.target.value == "-" && count > 0) {
-            setCount(count - 1);
+        if (count < stock) {
+            setCount(count + 1)
         }
+    }
 
-        else if (e.target.value == "+") {
-            setCount(count + 1);
+    const restarCarrito = () => {
+        if (count > 1) {
+            setCount(count - 1)
         }
     }
 
     const agregarAlCarrito = () => {
-        console.log(count);
+        setAddToCart(!addToCart)
     }
+
+    useEffect( () => {
+            if (addToCart){
+                console.log("Se agregaron ", count, " items al carrito.")
+                onAdd = addToCart
+                setAddToCart(!addToCart)
+                setCount(initial)
+            } 
+ 
+    }, [addToCart])
 
     return (
         <div className='counter'>
-            <h5>Nombre producto</h5>
             <div className='counter-inputs'>
-                <button value="+" onClick={contadorCarrito} className='counter-button'>+</button>
+                <button value="-" onClick={restarCarrito} className='counter-button'>-</button>
                 <input className='counter-display' type="number" value={count} readOnly/>
-                <button value="-" onClick={contadorCarrito} className='counter-button'>-</button>
+                <button value="+" onClick={sumarCarrito} className='counter-button'>+</button>
             </div>
             <button onClick={agregarAlCarrito} className='agregar-carrito-boton'>Agregar al carrito</button>
         </div>

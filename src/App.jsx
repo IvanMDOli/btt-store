@@ -12,8 +12,8 @@ function App() {
     <NavBar />
     <main className='main'>
       <ItemListContainer greeting={saludo} />
-      <Footer />
     </main>
+    <Footer />
     </>
   )
 }
