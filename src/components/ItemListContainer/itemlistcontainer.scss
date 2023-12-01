@@ -1,17 +1,22 @@
 .item-container {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     padding: 30px;
     margin: 30px;
     width: 75vw;
     min-width: 330px;
+    min-height: 75vh;
     background-color: #ff941b;
     border-radius: 5px;
 
     h1 {
         width: 100%;
         text-align: center;
+    }
+
+    .loading-icon{
+        align-self: center;
     }
 }
