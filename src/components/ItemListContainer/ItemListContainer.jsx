@@ -7,21 +7,27 @@ import './itemlistcontainer.scss'
 
 export const ItemListContainer = ( { greeting } ) => {
 
-  const [productos, setProductos] = useState ([])
+  const [items, setItems] = useState ([])
 
   const [loading, setLoading] = useState (true)
 
-  console.log("Productos", productos)
+
+  console.log("Productos", items)
 
   useEffect(() => {
     setLoading(true)
+
     console.log("Efecto de montaje")
+
     pedirDatos(true)
+
         .then((data) => { 
-          setProductos(data)
+          setItems(data)
           setLoading(false) })
+
         .catch((error) => { console.log(error) 
         })
+
   }, [])
   
   return (
@@ -29,7 +35,7 @@ export const ItemListContainer = ( { greeting } ) => {
     <section className='item-container'>
       {loading 
         ? <Icon className='loading-icon' icon="svg-spinners:clock" color="#444" width="50" height="50" vFlip={true} />
-        : <ItemList productos={productos} />}
+        : <ItemList greeting={greeting} items={items} />}
     </section>
   )
 }

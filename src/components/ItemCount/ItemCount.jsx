@@ -4,13 +4,13 @@ import './itemcount.scss'
 
 export const ItemCount = ( { stock, initial = 1, onAdd } ) => {
 
-    let [count, setCount] = useState(initial);
-    let [addToCartBool, setAddToCartBool] = useState(false);
-    let [stockRestante, setStockRestante] = useState(0)
+    const [count, setCount] = useState(initial);
+    const [addToCartBool, setAddToCartBool] = useState(false);
+    const [stockRestante, setStockRestante] = useState(stock);
 
     const sumarCarrito = () => {
 
-        if (count < stock) {
+        if (count < stock && stockRestante > 0) {
             setCount(count + 1)
         }
     }
@@ -22,16 +22,28 @@ export const ItemCount = ( { stock, initial = 1, onAdd } ) => {
     }
 
     const agregarAlCarrito = () => {
+
+        if (stockRestante === 0) {
+            console.log("No hay mas Stock")
+        }
+
+        else {
         setStockRestante(stockRestante - count)
-        setAddToCartBool(!addToCartBool) 
+        setAddToCartBool(!addToCartBool)
+        }
     }
 
     useEffect( () => {
 
             if (addToCartBool){
-                onAdd(count, stock)
+                onAdd(count, stockRestante)
                 setAddToCartBool(!addToCartBool)
-            } 
+                setCount(initial)
+            }
+
+            else if (stockRestante === 0) {
+                setCount(0)
+            }
  
     }, [addToCartBool])
 
@@ -39,7 +51,7 @@ export const ItemCount = ( { stock, initial = 1, onAdd } ) => {
         <div className='counter'>
             <div className='counter-inputs'>
                 <button value="-" onClick={restarCarrito} className='counter-button'>-</button>
-                <input className='counter-display' type="number" value={count} readOnly/>
+                <input className={stockRestante === 0 ? 'counter-display-off' :'counter-display'} type="number" value={count} readOnly/>
                 <button value="+" onClick={sumarCarrito} className='counter-button'>+</button>
             </div>
             <button onClick={agregarAlCarrito} className='agregar-carrito-boton'>Agregar al carrito</button>

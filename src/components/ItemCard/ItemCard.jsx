@@ -7,7 +7,7 @@ export const ItemCard = ( { item } ) => {
     <article className='item-card'>
         <h3>{item.name}</h3>
         <img src={item.img} alt="#" />
-        <h4>{item.price}</h4>
+        <h4>{item.price} U$D</h4>
         <p>{item.description}</p>
     </article>
   )
