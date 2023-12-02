@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
 import React from 'react'
+import { useState, useEffect } from 'react';
 import './itemcount.scss'
 
 export const ItemCount = ( { stock, initial = 1, onAdd } ) => {
 
     let [count, setCount] = useState(initial);
-    let [addToCart, setAddToCart] = useState(false);
-    
+    let [addToCartBool, setAddToCartBool] = useState(false);
+    let [stockRestante, setStockRestante] = useState(0)
 
     const sumarCarrito = () => {
 
@@ -22,18 +22,18 @@ export const ItemCount = ( { stock, initial = 1, onAdd } ) => {
     }
 
     const agregarAlCarrito = () => {
-        setAddToCart(!addToCart)
+        setStockRestante(stockRestante - count)
+        setAddToCartBool(!addToCartBool) 
     }
 
     useEffect( () => {
-            if (addToCart){
-                console.log("Se agregaron ", count, " items al carrito.")
-                onAdd = addToCart
-                setAddToCart(!addToCart)
-                setCount(initial)
+
+            if (addToCartBool){
+                onAdd(count, stock)
+                setAddToCartBool(!addToCartBool)
             } 
  
-    }, [addToCart])
+    }, [addToCartBool])
 
     return (
         <div className='counter'>

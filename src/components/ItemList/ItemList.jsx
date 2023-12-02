@@ -4,6 +4,11 @@ import { ItemCard } from '../ItemCard/ItemCard'
 import { ItemCount } from '../ItemCount/ItemCount'
 
 export const ItemList = ( { productos } ) => {
+
+  const addToCart = (cnt, stk) => {
+    console.log("Se agregaron ", cnt, " items al carrito")
+  }
+
   return (
     <>
       <h2>Productos</h2>
@@ -15,9 +20,9 @@ export const ItemList = ( { productos } ) => {
             />
         )) }
       </div>
-      <ItemCount stock={5} />
-      <ItemCount stock={6} />
-      <ItemCount stock={7} />
+      <ItemCount onAdd={addToCart} stock={20} />
+      <ItemCount onAdd={addToCart} stock={25} />
+      <ItemCount onAdd={addToCart} stock={30} />
     </>
   )
 }
