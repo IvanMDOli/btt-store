@@ -1,6 +1,6 @@
 import { MOCK_DATA } from "../mock/data"
 
-export const pedirDatos = (bool) => {
+export const getItem = (bool) => {
     return new Promise( (resolve, reject) => {
       setTimeout(() => {
         if (bool === true){

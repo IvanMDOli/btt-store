@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { ItemList } from '../ItemList/ItemList'
-import { pedirDatos } from '../../utils/utils'
+import { getItem } from '../../utils/utils'
 import { Icon } from '@iconify/react';
 import './itemlistcontainer.scss'
 
@@ -19,7 +19,7 @@ export const ItemListContainer = ( { greeting } ) => {
 
     console.log("Efecto de montaje")
 
-    pedirDatos(true)
+    getItem(true)
 
         .then((data) => { 
           setItems(data)

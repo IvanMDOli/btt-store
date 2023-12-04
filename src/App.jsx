@@ -7,7 +7,7 @@ import './App.scss'
 
 function App() {
 
-  const [itemDetails, setItemDetails] = useState (false)
+  const [itemDetails, setItemDetails] = useState (true)
 
 
   return (
@@ -15,7 +15,7 @@ function App() {
     <NavBar />
     <main className='main'>
       {itemDetails
-        ? <ItemDetailContainer />
+        ? <ItemDetailContainer itemDetailId={4}/>
         : <ItemListContainer greeting={"Productos"} />}
     </main>
     <Footer />
