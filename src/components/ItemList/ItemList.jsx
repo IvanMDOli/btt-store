@@ -1,14 +1,12 @@
 import React from 'react'
-import { useState } from 'react'
 import './itemlist.scss'
 import { ItemCard } from '../ItemCard/ItemCard'
-import { ItemCount } from '../ItemCount/ItemCount'
 
-export const ItemList = ( { items, greeting } ) => {
+export const ItemList = ( { title, items } ) => {
 
   return (
     <>
-      <h2>{greeting}</h2>
+      <h2>{title.charAt(0).toUpperCase() + title.slice(1)}</h2>
       <div className='items-list-map'>
         { items.map((e) => (
             <ItemCard 

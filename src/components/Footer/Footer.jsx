@@ -1,5 +1,6 @@
 import React from 'react'
 import './footer.scss'
+import { Link } from 'react-router-dom'
 
 export const Footer = () => {
   return (
@@ -7,9 +8,9 @@ export const Footer = () => {
         <h3>Contacto/Información/Redes</h3>
         <nav className='footer-nav'>
             <ul>
-                <li>Link 1</li>
-                <li>Link 2</li>
-                <li>Link 3</li>
+                <Link className='links-footer' to={'/'}>Link 1</Link>
+                <Link className='links-footer' to={'/pokeapi'}>PokeApi</Link>
+                <Link className='links-footer' to={'/'}>Link 3</Link>
             </ul>
         </nav>
     </footer>

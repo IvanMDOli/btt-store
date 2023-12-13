@@ -5,7 +5,7 @@ export const MOCK_DATA = [
       price: 1500,
       img: "https://dummyimage.com/600x400/000/fff&text=foto+prueba",
       description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.",
-      detail: false,
+      category: "vehiculos",
       stock: 20
     },
     {
@@ -14,7 +14,7 @@ export const MOCK_DATA = [
       price: 1500,
       img: "https://dummyimage.com/600x400/000/fff&text=foto+prueba",
       description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.",
-      detail: false,
+      category: "vehiculos",
       stock: 20
     },
     {
@@ -23,7 +23,7 @@ export const MOCK_DATA = [
       price: 1500,
       img: "https://dummyimage.com/600x400/000/fff&text=foto+prueba",
       description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.",
-      detail: false,
+      category: "vehiculos",
       stock: 20
     },
     {
@@ -32,7 +32,7 @@ export const MOCK_DATA = [
       price: 1500,
       img: "https://dummyimage.com/600x400/000/fff&text=foto+prueba",
       description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.",
-      detail: false,
+      category: "electrodomesticos",
       stock: 20
     },
     {
@@ -41,7 +41,7 @@ export const MOCK_DATA = [
       price: 1500,
       img: "https://dummyimage.com/600x400/000/fff&text=foto+prueba",
       description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.",
-      detail: false,
+      category: "electrodomesticos",
       stock: 20
     },
     {
@@ -50,7 +50,7 @@ export const MOCK_DATA = [
       price: 1500,
       img: "https://dummyimage.com/600x400/000/fff&text=foto+prueba",
       description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.",
-      detail: false,
+      category: "electrodomesticos",
       stock: 20
     },
     {
@@ -59,7 +59,7 @@ export const MOCK_DATA = [
       price: 1500,
       img: "https://dummyimage.com/600x400/000/fff&text=foto+prueba",
       description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.",
-      detail: false,
+      category: "ropa",
       stock: 20
     },
     {
@@ -68,7 +68,7 @@ export const MOCK_DATA = [
       price: 1500,
       img: "https://dummyimage.com/600x400/000/fff&text=foto+prueba",
       description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.",
-      detail: false,
+      category: "ropa",
       stock: 20
     },
     {
@@ -77,7 +77,7 @@ export const MOCK_DATA = [
       price: 1500,
       img: "https://dummyimage.com/600x400/000/fff&text=foto+prueba",
       description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima, eaque.",
-      detail: false,
+      category: "ropa",
       stock: 20
     }
 ]

@@ -5,7 +5,7 @@ no se si esta es la forma correcta.*/
     .header {
         align-items: end;
 
-        .botones-nav li{
+        .links-nav{
             margin: 0px 45px;
         }
 
@@ -19,7 +19,7 @@ no se si esta es la forma correcta.*/
     .header {
         align-items: end;
 
-        .botones-nav li{
+        .links-nav{
             margin: 0px 35px;
         }
 
@@ -34,7 +34,7 @@ no se si esta es la forma correcta.*/
         flex-direction: column;
         align-items: center;
 
-        .botones-nav li{
+        .links-nav{
             margin: 0px 35px;
         }
 
@@ -55,7 +55,7 @@ no se si esta es la forma correcta.*/
             flex-direction: row-reverse;
             align-items: center;
 
-            .botones-nav li{
+            .links-nav{
                 margin: 0px 20px;
             }
             .botones-principales {
@@ -70,7 +70,7 @@ no se si esta es la forma correcta.*/
     display: flex;
     justify-content: space-between;
     padding: 10px 50px;
-    box-shadow: 0px 1px 10px 1px aqua;
+    box-shadow:  aqua;
     background-image: url('../../assets/patron.png');
 
     .nav-bar {
@@ -92,13 +92,12 @@ no se si esta es la forma correcta.*/
             margin: 0px 10px;
             margin-bottom: 10px;
 
-            li {
+            .links-nav {
                 text-align: center;
                 min-width: 65px;
-                cursor: pointer;
                 color: rgb(44, 44, 44, 0.8);
                 transition: 0.3s;
-                list-style: none;
+                text-decoration: none;
                 user-select: none;
 
                 &:hover {
@@ -112,7 +111,7 @@ no se si esta es la forma correcta.*/
             align-items: center;
             justify-content: space-between;
 
-            li{
+            .links-principales{
                 width: 100px;
                 height: 45px;
                 display: flex;
@@ -124,8 +123,7 @@ no se si esta es la forma correcta.*/
                 margin:15px;
                 transition: 0.3s;
                 border: 1px solid rgba(0, 255, 255, 0);
-                cursor: pointer;
-                list-style: none;
+                text-decoration: none;
                 user-select: none;
                 color: #fffbe6;
 

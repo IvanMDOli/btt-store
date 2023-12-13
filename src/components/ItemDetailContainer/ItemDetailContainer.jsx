@@ -1,33 +1,15 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
 import { ItemDetail } from '../ItemDetail/ItemDetail';
-import { getItem } from '../../utils/utils'
 import { Icon } from '@iconify/react';
+import { useParams } from 'react-router-dom';
 import './itemdetailcontainer.scss'
+import { useItemsDetail } from '../../hooks/useItemsDetail';
 
-export const ItemDetailContainer = ( { itemDetailId } ) => {
+export const ItemDetailContainer = () => {
 
-  const [item, setItem] = useState ()
+  const { itemId } = useParams()
 
-  const [loading, setLoading] = useState (true)
-
-
-  useEffect(() => {
-    setLoading(true)
-
-    console.log("Efecto de montaje")
-
-    getItem(true)
-
-        .then((data) => { 
-          const selectedItem = data.find( (item) => item.id === itemDetailId )
-          setItem(selectedItem)
-          setLoading(false) })
-
-        .catch((error) => { console.log(error) 
-        })
-
-  }, [])
+  const { item, loading } = useItemsDetail( { itemId } )
   
   return (
 

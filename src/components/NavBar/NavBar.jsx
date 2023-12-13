@@ -1,5 +1,6 @@
 import React from 'react'
-import { CartWidget } from './CartWidget'
+import { CartWidget } from '../CartWidget/CartWidget'
+import { Link } from 'react-router-dom'
 import './navbar.scss'
 import logoStore from '../../assets/BackToTheStore.png'
 
@@ -12,16 +13,16 @@ export const NavBar = () => {
             </div>
             <nav className='nav-bar'>
                 <ul className='botones-nav'>
-                    <li>Electrodomesticos</li>
-                    <li>Vehiculos</li>
-                    <li>Ropa</li>
+                    <Link className='links-nav' to={"/products/electrodomesticos"}>Electrodomesticos</Link>
+                    <Link className='links-nav' to={"/products/vehiculos"}>Vehiculos</Link>
+                    <Link className='links-nav' to={"/products/ropa"}>Ropa</Link>
                 </ul>
                 <ul>
                     <CartWidget />
                 </ul>
                 <ul className='botones-principales'>
-                    <li>Inicio</li>
-                    <li>Login</li>
+                    <Link className='links-principales' to={'/'}>Inicio</Link>
+                    <Link className='links-principales' to={'/'}>Login</Link>
                 </ul>
             </nav>
         </header>

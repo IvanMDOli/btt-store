@@ -1,41 +1,24 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
 import { ItemList } from '../ItemList/ItemList'
-import { getItem } from '../../utils/utils'
+import { useItems } from '../../hooks/useItems'
 import { Icon } from '@iconify/react';
+import { useParams } from 'react-router-dom';
 import './itemlistcontainer.scss'
 
-export const ItemListContainer = ( { greeting } ) => {
+export const ItemListContainer = () => {
 
-  const [items, setItems] = useState ([])
+  const { categoryId } = useParams()
 
-  const [loading, setLoading] = useState (true)
+  const { items, loading } = useItems( { categoryId } )
 
-
-  console.log("Productos", items)
-
-  useEffect(() => {
-    setLoading(true)
-
-    console.log("Efecto de montaje")
-
-    getItem(true)
-
-        .then((data) => { 
-          setItems(data)
-          setLoading(false) })
-
-        .catch((error) => { console.log(error) 
-        })
-
-  }, [])
-  
   return (
 
     <section className='item-container'>
-      {loading 
-        ? <Icon className='loading-icon' icon="svg-spinners:clock" color="#444" width="50" height="50" vFlip={true} />
-        : <ItemList greeting={greeting} items={items} />}
+      {
+        loading 
+          ? <Icon className='loading-icon' icon="svg-spinners:clock" color="#444" width="50" height="50" vFlip={true} />
+          : <ItemList title={categoryId ? categoryId : 'Productos'} items={items} />
+      }
     </section>
   )
 }

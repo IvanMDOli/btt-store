@@ -1,7 +1,7 @@
 .item-container {
     display: flex;
     flex-wrap: wrap;
-    align-items: start;
+    text-align: center;
     justify-content: center;
     padding: 30px;
     margin: 30px;
@@ -11,9 +11,11 @@
     background-color: #ff941b;
     border-radius: 5px;
 
-    h1 {
+    h2 {
+        font-size: 30px;
         width: 100%;
         text-align: center;
+        align-self: center;
     }
 
     .loading-icon{

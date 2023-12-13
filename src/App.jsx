@@ -1,25 +1,37 @@
 import { NavBar } from './components/NavBar/NavBar.jsx'
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer.jsx';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer'
-import { useState } from 'react';
+import { CartDetails } from './components/CartDetails/CartDetails'
+import { PokeApi } from './components/PokeApi/PokeApi.jsx';
 import { Footer } from './components/Footer/Footer.jsx'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { NotFound } from './components/NotFound/NotFound.jsx';
 import './App.scss'
+
+
 
 function App() {
 
-  const [itemDetails, setItemDetails] = useState (true)
-
-
   return (
-    <>
-    <NavBar />
-    <main className='main'>
-      {itemDetails
-        ? <ItemDetailContainer itemDetailId={4}/>
-        : <ItemListContainer greeting={"Productos"} />}
-    </main>
-    <Footer />
-    </>
+    <BrowserRouter>
+
+      <NavBar />
+
+      <main className='main'>
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/products/:categoryId" element={<ItemListContainer />} />
+          <Route path="/itemdetail/:itemId" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<CartDetails />} />
+          <Route path="/pokeapi" element={<PokeApi />} />
+          <Route path="/not-found" element={<NotFound/>} />
+          <Route path="*" element={<Navigate to={"/not-found"} />} />
+        </Routes>
+      </main>
+
+      <Footer />
+
+    </BrowserRouter>
   )
 }
 
