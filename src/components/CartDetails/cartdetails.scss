@@ -1,0 +1,16 @@
+.cart-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px;
+    margin: 30px;
+    width: 75vw;
+    min-width: 330px;
+    min-height: 75vh;
+    background-color: #ff941b;
+    border-radius: 5px;
+
+    .loading-icon {
+        align-self: center;
+    }
+}

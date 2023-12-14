@@ -9,7 +9,7 @@ export const NavBar = () => {
     return (
         <header className='header'>
             <div className='logo'>
-                <img src={logoStore} alt="BackToTheStore Logo" />
+                <Link to={'/'}><img src={logoStore} alt="BackToTheStore Logo" /></Link>
             </div>
             <nav className='nav-bar'>
                 <ul className='botones-nav'>
@@ -18,7 +18,7 @@ export const NavBar = () => {
                     <Link className='links-nav' to={"/products/ropa"}>Ropa</Link>
                 </ul>
                 <ul>
-                    <CartWidget />
+                    <Link to={'/cart'}><CartWidget /></Link>
                 </ul>
                 <ul className='botones-principales'>
                     <Link className='links-principales' to={'/'}>Inicio</Link>

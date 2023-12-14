@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 
 export const CartWidget = () => {
     return (
-        <Link to={'/cart'}>
+        <>
             <Icon icon="dashicons:cart" color="#313131" width="40" height="40" />
             <span className='notificacion-carrito'>3</span>
-        </Link>
+        </>
     )
 }

@@ -1,24 +1,22 @@
-.item-container {
+.not-found  {
     display: flex;
     flex-wrap: wrap;
-    text-align: center;
-    justify-content: center;
+    align-content: center;
     padding: 30px;
     margin: 30px;
     width: 85vw;
     min-width: 330px;
     min-height: 70vh;
-    background-color: #ff941b;
+    background-color: #5e5e5e;
     border-radius: 5px;
-
-    h2 {
-        font-size: 30px;
+    
+    h3, p {
         width: 100%;
+        color: #a3a3a3;
         text-align: center;
-        align-self: center;
     }
-
-    .loading-icon{
+    
+    .loading-icon {
         align-self: center;
     }
 }
