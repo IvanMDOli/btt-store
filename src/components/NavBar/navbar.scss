@@ -66,11 +66,11 @@ no se si esta es la forma correcta.*/
 }
 
 .header {
-    background-color: #ff941b;
+    background-color: rgb(255, 148, 27);
     display: flex;
     justify-content: space-between;
     padding: 10px 50px;
-    box-shadow:  aqua;
+    box-shadow: 0px 0px 10px aqua;
     background-image: url('../../assets/patron.png');
 
     .nav-bar {
@@ -89,16 +89,15 @@ no se si esta es la forma correcta.*/
             justify-content: space-between;
             background-color: rgba(255, 255, 255, 0.5);
             border-radius: 10px;
-            margin: 0px 10px;
-            margin-bottom: 10px;
+            margin: 10px 10px;
 
             .links-nav {
                 text-align: center;
-                min-width: 65px;
                 color: rgb(44, 44, 44, 0.8);
                 transition: 0.3s;
                 text-decoration: none;
                 user-select: none;
+                font-weight: 500;
 
                 &:hover {
                     color: rgb(0, 0, 0);
@@ -113,13 +112,13 @@ no se si esta es la forma correcta.*/
 
             .links-principales{
                 width: 100px;
-                height: 45px;
+                height: 35px;
                 display: flex;
                 flex-wrap: wrap;
                 align-items: center;
                 justify-content: center;
                 background-color: rgb(44, 44, 44);
-                border-radius: 25px;
+                border-radius: 15px;
                 margin:15px;
                 transition: 0.3s;
                 border: 1px solid rgba(0, 255, 255, 0);

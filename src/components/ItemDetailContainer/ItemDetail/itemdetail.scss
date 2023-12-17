@@ -1,0 +1,84 @@
+.item-detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    
+
+    .img-detailContainer {
+        display: flex;
+        width: 500px;
+        height: 350px;
+        border: 1px solid rgb(0, 0, 0);
+        padding: 2px;
+        border-radius: 5px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 10px black;
+        margin: 10px 30px;
+
+        img {
+            cursor: zoom-in;
+            object-fit: contain;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .itemcount {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(0, 0, 0, 0.5);
+        text-align: center;
+        border-radius: 3px;
+        width: 350px;
+        margin: 0px 30px;
+
+        .add-cart {
+            width: 70%;
+            height: 40px;
+            background-color: rgb(0, 110, 255);
+            border: none;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid rgb(0, 65, 150);
+
+            &:hover {
+                background-color: rgb(33, 129, 255);
+            }
+        }
+
+        h2 {
+            text-shadow: 0px 0px 5px black;
+            width: 80%;
+        }
+
+        p {
+            font-weight: 100;
+            color: rgb(206, 206, 206);
+        }
+    }
+
+    .name-desc {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        align-items: center;
+        justify-content: center;
+        width: 45%;
+
+        h2 {
+            width: 100%;
+            text-align: center;
+            margin: 10px;
+            font-family: 'VCR-OSD-MONO';
+            color: black;
+            text-shadow: 0px 0px 5px white;
+        }
+
+        h5 {
+            margin: 10px;
+        }
+    }
+}

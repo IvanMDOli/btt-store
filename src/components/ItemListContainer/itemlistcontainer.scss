@@ -8,15 +8,9 @@
     width: 85vw;
     min-width: 330px;
     min-height: 70vh;
-    background-color: #ff941b;
+    background-color: rgb(255, 148, 27);
     border-radius: 5px;
-
-    h2 {
-        font-size: 30px;
-        width: 100%;
-        text-align: center;
-        align-self: center;
-    }
+    text-shadow: 0px 0px 5px black;
 
     .loading-icon{
         align-self: center;

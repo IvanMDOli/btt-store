@@ -1,0 +1,21 @@
+  .items-list-map {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: start;
+    margin: 30px 0px 30px 0px;
+
+    h1 {
+      font-family: 'BTTF';
+      width: 100%;
+      color: rgb(255, 247, 233);
+    }
+
+    hr {
+      width: 100%;
+      margin: 40px;
+      box-shadow: 0px 0px 5px aqua;
+      color: aqua;
+      border-style: solid;
+    }
+}

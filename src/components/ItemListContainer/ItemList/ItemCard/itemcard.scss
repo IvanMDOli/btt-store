@@ -1,21 +1,29 @@
 .item-card {
     width: 250px;
-    background-color: rgb(31, 31, 31);
+    background-color: rgb(31, 31, 31, 0.9);
     text-align: center;
-    border-radius: 10px;
     margin: 10px;
-    padding-bottom: 10px;
-    box-shadow: 0px 1px 10px 1px black;
+    box-shadow: 0px 0px 5px 1px black;
     transition: 0.3s;
     text-decoration: none;
     color: rgb(221, 221, 221);
 
+    p {
+        padding: 10px;
+        text-align: left;
+    }
+
     &:hover {
-        box-shadow: 0px 1px 10px 1px aqua;
+        box-shadow: 0px 0px 5px 1px aqua;
+        background-color: rgb(31, 31, 31);
     }
 
     img {
         max-width: 100%;
+    }
+
+    h3 {
+        padding: 5px;
     }
 
     h4 {

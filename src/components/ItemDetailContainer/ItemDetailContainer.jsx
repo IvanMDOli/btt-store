@@ -1,11 +1,23 @@
-import React from 'react'
-import { ItemDetail } from '../ItemDetail/ItemDetail';
-import { Icon } from '@iconify/react';
-import { useParams } from 'react-router-dom';
-import './itemdetailcontainer.scss'
+import { useEffect} from 'react';
+import { ItemDetail } from './ItemDetail/ItemDetail';
 import { useItemsDetail } from '../../hooks/useItemsDetail';
+import { useParams } from 'react-router-dom';
+import { Icon } from '@iconify/react';
+import './itemdetailcontainer.scss';
 
 export const ItemDetailContainer = () => {
+
+  useEffect (() => {
+    const handleClick = () => {
+      console.log('Click')
+    }
+
+    window.addEventListener('click', handleClick)
+
+    return () => {
+      window-removeEventListener('click', handleClick)
+    }
+  }, [])
 
   const { itemId } = useParams()
 

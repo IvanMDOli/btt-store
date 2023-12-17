@@ -1,7 +1,6 @@
 import React from 'react'
 import './cartwidget.scss'
 import { Icon } from '@iconify/react'
-import { Link } from 'react-router-dom'
 
 export const CartWidget = () => {
     return (

@@ -1,7 +1,16 @@
+@font-face {
+  font-family: 'BTTF';
+  src: url('./assets/fonts/BTTF.ttf');
+}
+
+@font-face {
+  font-family: 'VCR-OSD-MONO';
+  src: url('./assets/fonts/VCR-OSD-MONO.ttf');
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 500;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -14,7 +23,11 @@
 
 
   h1 {
-    font-size: 3.2em;
+    font-size: 2em;
     line-height: 1.1;
+  }
+
+  p {
+    font-family: 'VCR-OSD-MONO';
   }
 }

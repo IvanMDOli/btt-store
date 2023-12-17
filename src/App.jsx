@@ -9,7 +9,6 @@ import { NotFound } from './components/NotFound/NotFound.jsx';
 import './App.scss'
 
 
-
 function App() {
 
   return (
