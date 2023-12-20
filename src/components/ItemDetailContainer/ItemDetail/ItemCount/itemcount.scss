@@ -39,5 +39,10 @@
         height: 30px;
         font-size: 20px;
         border: none;
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(97, 97, 97);
+        }
     }
 }

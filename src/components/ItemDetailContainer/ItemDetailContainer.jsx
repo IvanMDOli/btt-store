@@ -7,6 +7,7 @@ import './itemdetailcontainer.scss';
 
 export const ItemDetailContainer = () => {
 
+/*  
   useEffect (() => {
     const handleClick = () => {
       console.log('Click')
@@ -18,6 +19,7 @@ export const ItemDetailContainer = () => {
       window-removeEventListener('click', handleClick)
     }
   }, [])
+*/
 
   const { itemId } = useParams()
 

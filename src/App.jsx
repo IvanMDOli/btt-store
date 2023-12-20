@@ -7,30 +7,36 @@ import { Footer } from './components/Footer/Footer.jsx'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { NotFound } from './components/NotFound/NotFound.jsx';
 import './App.scss'
+import { CartProvider } from './context/CartContext.jsx';
 
 
 function App() {
 
+  
   return (
-    <BrowserRouter>
+    <CartProvider>
 
-      <NavBar />
+      <BrowserRouter>
 
-      <main className='main'>
-        <Routes>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/products/:categoryId" element={<ItemListContainer />} />
-          <Route path="/itemdetail/:itemId" element={<ItemDetailContainer />} />
-          <Route path="/cart" element={<CartDetails />} />
-          <Route path="/pokeapi" element={<PokeApi />} />
-          <Route path="/not-found" element={<NotFound/>} />
-          <Route path="*" element={<Navigate to={"/not-found"} />} />
-        </Routes>
-      </main>
+        <NavBar />
 
-      <Footer />
+        <main className='main'>
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/products/:categoryId" element={<ItemListContainer />} />
+            <Route path="/itemdetail/:itemId" element={<ItemDetailContainer />} />
+            <Route path="/cart" element={<CartDetails />} />
+            <Route path="/pokeapi" element={<PokeApi />} />
+            <Route path="/not-found" element={<NotFound/>} />
+            <Route path="*" element={<Navigate to={"/not-found"} />} />
+          </Routes>
+        </main>
 
-    </BrowserRouter>
+        <Footer />
+
+      </BrowserRouter>
+
+    </CartProvider>
   )
 }
 
