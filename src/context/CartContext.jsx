@@ -8,7 +8,21 @@ export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
 
     const addToCart = (item) => {
-        setCart([...cart, item])
+        const cartCopy = [...cart]
+
+        const isItemInCart = cartCopy.some(cartItem => {
+            if(cartItem.id === item.id) {
+                
+                cartItem.count = cartItem.count + item.count;
+                setCart(cartCopy)
+                return true
+            }
+            return false;
+        });
+
+        if(!isItemInCart) {
+            setCart([...cart, item])
+        }
     }
 
     const clearCart = () => {

@@ -11,7 +11,7 @@ export const CartDetails = () => {
   return (
     <section className="section-details">
       <div className="cart-details">
-        <h2 className="">Tu Compra</h2>
+        <h1>TU COMPRA</h1>
         <hr/>
 
         <ul>
@@ -22,8 +22,8 @@ export const CartDetails = () => {
                         <div className='itemInfo-details'>
                             <img src={item.img} alt={item.name} className=""/>
                             <div>
-                                <h3 className="">{item.name}</h3>
-                                <p className="">U$D {item.price * item.count}</p>
+                                <h3>{item.name}</h3>
+                                <p>U$D {item.price * item.count}</p>
                                 <p>Cantidad: {item.count}</p>
                                 <p>c/u: U$D {item.price}</p>
                             </div>
@@ -33,9 +33,10 @@ export const CartDetails = () => {
                 ))
             }
         </ul>
-
-        <h4 className="">TOTAL: ${totalCart()}</h4>
-        <button onClick={clearCart}>Vaciar carrito</button>
+        <div className="total-details">
+          <button onClick={clearCart}>Vaciar carrito</button>
+          <h3>TOTAL: U$D {totalCart()}</h3>
+        </div>
       </div>
     </section>
   )

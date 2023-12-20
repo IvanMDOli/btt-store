@@ -1,8 +1,9 @@
-import React, { useContext } from 'react'
-import { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { ItemCount } from './ItemCount/ItemCount'
-import './itemdetail.scss'
 import { CartContext } from '../../../context/CartContext'
+import closeIcon from '../../../assets/close-icon.png'
+import './itemdetail.scss'
 
 export const ItemDetail = ( { itemDetail } ) => {
 
@@ -11,6 +12,8 @@ export const ItemDetail = ( { itemDetail } ) => {
 
     const [showFullImage, setShowFullImage] = useState(false);
     const [clickedImage, setClickedImage] = useState(null);
+
+    const navigate = useNavigate()
 
   const { addToCart } = useContext(CartContext)
 
@@ -45,9 +48,15 @@ export const ItemDetail = ( { itemDetail } ) => {
 
   }
 
+  const handleBack = () => {
+    navigate(-1)
+  }
 
   return (
     <section className='item-detail'>
+      <div className='close-icon-div'>
+        <img onClick={handleBack} src={closeIcon} alt="close-icon" />
+      </div>
       <div className='img-detailContainer'>
         <img onClick={() => handleClick(itemDetail.img)} src={itemDetail.img} alt={itemDetail.name} />
       </div>

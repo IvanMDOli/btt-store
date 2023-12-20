@@ -1,17 +1,15 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { NavBar } from './components/NavBar/NavBar.jsx'
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer.jsx';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer'
 import { CartDetails } from './components/CartDetails/CartDetails'
 import { PokeApi } from './components/PokeApi/PokeApi.jsx';
 import { Footer } from './components/Footer/Footer.jsx'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { NotFound } from './components/NotFound/NotFound.jsx';
-import './App.scss'
 import { CartProvider } from './context/CartContext.jsx';
-
+import './App.scss'
 
 function App() {
-
   
   return (
     <CartProvider>
