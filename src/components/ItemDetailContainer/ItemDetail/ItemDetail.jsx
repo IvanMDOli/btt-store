@@ -4,6 +4,7 @@ import { ItemCount } from './ItemCount/ItemCount'
 import { CartContext } from '../../../context/CartContext'
 import closeIcon from '../../../assets/close-icon.png'
 import './itemdetail.scss'
+import { CartView } from './CartView/CartView'
 
 export const ItemDetail = ( { itemDetail } ) => {
 
@@ -65,12 +66,15 @@ export const ItemDetail = ( { itemDetail } ) => {
         <h3>Description</h3>
         <p>{itemDetail.description}</p>
       </div>
-      <div className='itemcount'>
-        <h2>{itemDetail.price} U$D</h2>
-        <p>Stock restante: {stockRestante}</p>
-        <ItemCount count={count} setCount={setCount} stock={stockRestante} />
-        <button onClick={handleAdd} className='add-cart'>Agregar al Carrito</button>
+      <div className='itemcount-container'>
+        <div className='itemcount'>
+          <h2>{itemDetail.price} U$D</h2>
+          <p>Stock restante: {stockRestante}</p>
+          <ItemCount count={count} setCount={setCount} stock={stockRestante} />
+          <button onClick={handleAdd} className='add-cart'>Agregar al Carrito</button>
+        </div>
       </div>
+      <CartView />
       {showFullImage && (
         <div className='fullSizeImg-div' onClick={handleClose}>
           <img className='fullSizeImg' src={clickedImage} alt={itemDetail.name}/>

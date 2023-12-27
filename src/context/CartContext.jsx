@@ -41,9 +41,6 @@ export const CartProvider = ({ children }) => {
         setCart( cart.filter(item => item.id !== id) )
     }
 
-    console.log(cart)
-
-
     return(
         <CartContext.Provider value={{
             cart,

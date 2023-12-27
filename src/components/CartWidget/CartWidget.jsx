@@ -10,7 +10,7 @@ export const CartWidget = () => {
     return (
         <>
             <Icon icon="dashicons:cart" color="#313131" width="40" height="40" />
-            <span className='notificacion-carrito'>{itemsInCart()}</span>
+            <span className={itemsInCart() === 0 ? 'span-off' : 'span'}>{itemsInCart()}</span>
         </>
     )
 }

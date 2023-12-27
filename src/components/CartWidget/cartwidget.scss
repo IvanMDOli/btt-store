@@ -1,4 +1,4 @@
-.notificacion-carrito {
+.span {
     position: absolute;
     text-align: center;
     background-color: red;
@@ -7,4 +7,8 @@
     border-radius: 100%;
     width: 21px;
     font-size: 12px;
+}
+
+.span-off {
+    display: none;
 }

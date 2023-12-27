@@ -17,7 +17,7 @@ export const PokeApi = () => {
 
   return (
     <div className='poke-container'>
-        <h1>PokeApi</h1>
+        <h1>POKEAPI</h1>
             <button value='ant' onClick={handleAnt} >Anterior Pokemon</button>
             <button value='sig' onClick={handleSig} >Siguiente Pokemon</button>
         {
