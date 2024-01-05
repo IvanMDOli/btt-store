@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { getItem } from '../utils/utils'
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../firebase/config';
 
 export const useItems = ({categoryId}) => {
 
@@ -8,16 +9,23 @@ export const useItems = ({categoryId}) => {
   
     useEffect(() => {
       setLoading(true)
-  
-      getItem(true)
-  
-          .then((data) => { 
-            const categoryFilter = categoryId
-                                    ? data.filter(prod => prod.category === categoryId)
-                                    : data 
-  
-            setItems(categoryFilter)
+
+      const itemsRef = collection(db, 'items')
+      const docsRef = categoryId
+                        ? query( itemsRef, where('category', '==', categoryId) )
+                        : itemsRef
+                        
+      getDocs( docsRef )
+        .then((resp) => {
+
+          const data = resp.docs.map(doc => ({
+            ...doc.data(),
+            id: doc.id
+          }))
+
+          setItems(data)
           })
+
           .finally(() => setLoading(false))
   
           .catch((error) => { console.log(error) 

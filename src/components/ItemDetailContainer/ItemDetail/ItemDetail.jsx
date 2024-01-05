@@ -5,6 +5,8 @@ import { CartContext } from '../../../context/CartContext'
 import closeIcon from '../../../assets/close-icon.png'
 import './itemdetail.scss'
 import { CartView } from './CartView/CartView'
+import { USDollar } from '../../../utils/utils'
+import Swal from 'sweetalert2'
 
 export const ItemDetail = ( { itemDetail } ) => {
 
@@ -44,7 +46,7 @@ export const ItemDetail = ( { itemDetail } ) => {
     }
 
     else {
-      window.alert('No hay mas stock')
+      Swal.fire('No hay mas stock')
     }
 
   }
@@ -68,7 +70,7 @@ export const ItemDetail = ( { itemDetail } ) => {
       </div>
       <div className='itemcount-container'>
         <div className='itemcount'>
-          <h2>{itemDetail.price} U$D</h2>
+          <h2>{USDollar.format(itemDetail.price)}</h2>
           <p>Stock restante: {stockRestante}</p>
           <ItemCount count={count} setCount={setCount} stock={stockRestante} />
           <button onClick={handleAdd} className='add-cart'>Agregar al Carrito</button>

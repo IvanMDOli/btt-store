@@ -3,6 +3,7 @@ import './cartview.scss'
 import { CartContext } from '../../../../context/CartContext'
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
+import { USDollar } from '../../../../utils/utils';
 
 export const CartView = () => {
 
@@ -29,7 +30,7 @@ export const CartView = () => {
                             <img src={item.img} alt={item.name}/>
                             <div>
                                 <h3>{item.name}</h3>
-                                <p>U$D {item.price * item.count}</p>
+                                <p>{USDollar.format(item.price * item.count)}</p>
                                 <p>Cantidad: {item.count}</p>
                                 <p>c/u: U$D {item.price}</p>
                             </div>

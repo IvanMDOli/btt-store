@@ -3,6 +3,7 @@ import './cartdetails.scss'
 import { CartContext } from '../../context/CartContext'
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
+import { USDollar } from '../../utils/utils';
 
 
 export const CartDetails = () => {
@@ -36,9 +37,9 @@ export const CartDetails = () => {
                               <img src={item.img} alt={item.name}/>
                               <div>
                                   <h3>{item.name}</h3>
-                                  <p>U$D {item.price * item.count}</p>
+                                  <p>{USDollar.format(item.price * item.count)}</p>
                                   <p>Cantidad: {item.count}</p>
-                                  <p>c/u: U$D {item.price}</p>
+                                  <p>c/u: {USDollar.format(item.price)}</p>
                               </div>
                           </div>
                           </Link>
@@ -50,7 +51,8 @@ export const CartDetails = () => {
         </ul>
         <div className="total-details">
           <button onClick={clearCart}>Vaciar carrito</button>
-          <h3>TOTAL: U$D {totalCart()}</h3>
+          <Link to={'/checkout'}>Terminar Compra+</Link>
+          <h3>TOTAL: {USDollar.format(totalCart())}</h3>
         </div>
       </div>
     </section>

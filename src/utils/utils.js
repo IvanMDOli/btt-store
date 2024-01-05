@@ -12,3 +12,8 @@ export const getItem = (bool) => {
       }, 2000)
     })
 }
+
+export const USDollar = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
