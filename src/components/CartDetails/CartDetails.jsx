@@ -50,8 +50,10 @@ export const CartDetails = () => {
             }
         </ul>
         <div className="total-details">
-          <button onClick={clearCart}>Vaciar carrito</button>
-          <Link to={'/checkout'}>Terminar Compra+</Link>
+          <div className='buttons-div'>
+            <button className='cart-buttons' onClick={clearCart}>Vaciar carrito</button>
+            <Link className='cart-buttons' to={'/checkout'}>Terminar Compra</Link>
+          </div>
           <h3>TOTAL: {USDollar.format(totalCart())}</h3>
         </div>
       </div>
