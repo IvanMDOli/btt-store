@@ -1,0 +1,30 @@
+.profile-container {
+    background-color: rgba(255, 255, 255, 0.267);
+    width: 700px;
+    height: 900px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    .userinfo {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 90%;
+        height: 90%;
+    }
+
+    button {
+        color: white;
+        background-color: rgb(255, 68, 68);
+        border-radius: 3px;
+        border: none;
+        width: 100px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: rgb(255, 32, 32);
+        }
+    }
+}

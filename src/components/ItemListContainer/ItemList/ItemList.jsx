@@ -1,21 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './itemlist.scss'
 import { ItemCard } from './ItemCard/ItemCard'
+import Pagination from './Pagination/Pagination';
 
 export const ItemList = ( { title, items } ) => {
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(10);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+
   return (
     <>
-      <div className='items-list-map'>
-        <h1>{title}</h1>
-        <hr/>
-        { items.map((e) => (
-            <ItemCard 
+        <div className='items-list-map'>
+          <h1>{title}</h1>
+          <hr/>
+          {currentItems.map((e) => (
+            <ItemCard
               key={e.id}
               item={e}
             />
-        )) }
-      </div>
+          ))}
+        </div>
+          <Pagination
+            itemsPerPage={itemsPerPage}
+            totalItems={items.length}
+            paginate={paginate}
+          />
     </>
   )
 }

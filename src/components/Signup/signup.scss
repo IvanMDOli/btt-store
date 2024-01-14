@@ -1,0 +1,62 @@
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .signup-div {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgb(255, 151, 32);
+
+        h2 {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: rgb(0, 110, 255);
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 10px;
+            transition: 0.3s;
+
+            &:hover {
+                color: rgb(70, 150, 253);
+            }
+        }
+        
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 85%;
+
+            input {
+                width: 100%;
+                margin: 5px;
+                height: 30px;
+            }
+            
+            #name, #lastname {
+                width: 45%;
+            }
+    
+            button {
+                margin-top: 10px;
+                width: 100%;
+                cursor: pointer;
+            }
+        }
+        
+    }
+}

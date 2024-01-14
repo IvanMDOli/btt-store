@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { CartWidget } from '../CartWidget/CartWidget'
 import { Link } from 'react-router-dom'
 import './navbar.scss'
 import logoStore from '../../assets/BackToTheStore.png'
+import { UserContext } from '../../context/UserContext'
 
 
 export const NavBar = () => {
+
+    const { user } = useContext(UserContext) 
+
     return (
         <header className='header'>
             <div className='logo'>
@@ -22,7 +26,10 @@ export const NavBar = () => {
                 </ul>
                 <ul className='botones-principales'>
                     <Link className='links-principales' to={'/'}>Inicio</Link>
-                    <Link className='links-principales' to={'/'}>Login</Link>
+                    {user.logged 
+                        ? <Link className='links-principales' to={'/profile'}>{`${user.name} ${user.lastname}`}</Link>
+                        : <Link className='links-principales' to={'/login'}>Login</Link>
+                    }
                 </ul>
             </nav>
         </header>
