@@ -27,7 +27,7 @@ export const NavBar = () => {
                 <ul className='botones-principales'>
                     <Link className='links-principales' to={'/'}>Inicio</Link>
                     {user.logged 
-                        ? <Link className='links-principales' to={'/profile'}>{`${user.name} ${user.lastname}`}</Link>
+                        ? <Link className='links-principales' to={'/profile'}>{`${user.name}`}</Link>
                         : <Link className='links-principales' to={'/login'}>Login</Link>
                     }
                 </ul>

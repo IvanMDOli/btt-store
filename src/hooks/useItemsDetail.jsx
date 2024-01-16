@@ -15,17 +15,24 @@ export const useItemsDetail = ( { itemId } ) => {
       getDoc( docRef )
         .then((resp) => {
 
-          const doc = {
-            ...resp.data(),
-            id: resp.id
-          }
+          if(resp.data()) {
 
-          setItem(doc)
-          })
-            .finally(() => setLoading(false) )
-    
-            .catch((error) => { console.log(error) 
-            })
+            const doc = {
+              ...resp.data(),
+              id: resp.id
+            }
+  
+            setItem(doc)
+          }
+          else {
+            setItem('')
+          }
+          
+        })
+        .finally(() => setLoading(false) )
+
+        .catch((error) => { console.log(error) 
+        })
     
       }, [])    
 

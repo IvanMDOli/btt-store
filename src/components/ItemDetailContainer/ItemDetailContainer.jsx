@@ -7,20 +7,6 @@ import './itemdetailcontainer.scss';
 
 export const ItemDetailContainer = () => {
 
-/*  
-  useEffect (() => {
-    const handleClick = () => {
-      console.log('Click')
-    }
-
-    window.addEventListener('click', handleClick)
-
-    return () => {
-      window-removeEventListener('click', handleClick)
-    }
-  }, [])
-*/
-
   const { itemId } = useParams()
 
   const { item, loading } = useItemsDetail( { itemId } )

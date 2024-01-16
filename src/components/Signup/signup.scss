@@ -7,6 +7,21 @@
     z-index: 1000;
     background-color: rgba(0, 0, 0, 0.5);
 
+    .close-button {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        cursor: pointer;
+        opacity: 0.8;
+        transition: 0.3s;
+        color: red;
+        opacity: 0.7;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
     .signup-div {
         display: flex;
         flex-wrap: wrap;
@@ -15,6 +30,7 @@
         padding: 20px;
         border-radius: 10px;
         background-color: rgb(255, 151, 32);
+        width: 600px;
 
         h2 {
             width: 100%;
@@ -47,7 +63,7 @@
                 height: 30px;
             }
             
-            #name, #lastname {
+            .completename {
                 width: 45%;
             }
     

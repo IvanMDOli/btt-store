@@ -56,32 +56,34 @@ export const ItemDetail = ( { itemDetail } ) => {
   }
 
   return (
-    <section className='item-detail'>
-      <div className='close-icon-div'>
-        <img onClick={handleBack} src={closeIcon} alt="close-icon" />
-      </div>
-      <div className='img-detailContainer'>
-        <img onClick={() => handleClick(itemDetail.img)} src={itemDetail.img} alt={itemDetail.name} />
-      </div>
-      <div className='name-desc'>
-        <h2>{itemDetail.name}</h2>
-        <h3>Description</h3>
-        <p>{itemDetail.description}</p>
-      </div>
-      <div className='itemcount-container'>
-        <div className='itemcount'>
-          <h2>{USDollar.format(itemDetail.price)}</h2>
-          <p>Stock restante: {stockRestante}</p>
-          <ItemCount count={count} setCount={setCount} stock={stockRestante} />
-          <button onClick={handleAdd} className='add-cart'>Agregar al Carrito</button>
+      itemDetail 
+        ? (<section className='item-detail'>
+        <div className='close-icon-div'>
+          <img onClick={handleBack} src={closeIcon} alt="close-icon" />
         </div>
-      </div>
-      <CartView />
-      {showFullImage && (
-        <div className='fullSizeImg-div' onClick={handleClose}>
-          <img className='fullSizeImg' src={clickedImage} alt={itemDetail.name}/>
+        <div className='img-detailContainer'>
+          <img onClick={() => handleClick(itemDetail.img)} src={itemDetail.img} alt={itemDetail.name} />
         </div>
-      )}
-    </section>
+        <div className='name-desc'>
+          <h2>{itemDetail.name}</h2>
+          <h3>Description</h3>
+          <p>{itemDetail.description}</p>
+        </div>
+        <div className='itemcount-container'>
+          <div className='itemcount'>
+            <h2>{USDollar.format(itemDetail.price)}</h2>
+            <p>Stock restante: {stockRestante}</p>
+            <ItemCount count={count} setCount={setCount} stock={stockRestante} />
+            <button onClick={handleAdd} className='add-cart'>Agregar al Carrito</button>
+          </div>
+        </div>
+        <CartView />
+        {showFullImage && (
+          <div className='fullSizeImg-div' onClick={handleClose}>
+            <img className='fullSizeImg' src={clickedImage} alt={itemDetail.name}/>
+          </div>
+        )}
+      </section>)
+        : <h2>No se encontraron productos</h2>
   )
 }

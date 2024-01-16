@@ -6,10 +6,13 @@ import { db } from '../../firebase/config';
 import './checkout.scss'
 import { useFetch } from '../../hooks/useFetch';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Brief } from './Brief';
 
 export const Checkout = () => {
 
     const [orderId, setOrderId] = useState(null);
+
+    const [formData, setFormData] = useState(null);
 
     const { cart, totalCart, clearCart } = useContext(CartContext);
 
@@ -67,6 +70,8 @@ export const Checkout = () => {
             addDoc(ordersRef, orden).then((doc) => {
                 setOrderId(doc.id)
                 clearCart()
+
+                setFormData(e);
         
                 Swal.fire("Gracias por tu compra!")
             });
@@ -75,26 +80,7 @@ export const Checkout = () => {
 
     if (orderId) {
         return (
-            <div className="compra-finalizada">
-                <h2>Gracias por tu compra</h2>
-                <hr />
-                <div className='info-compra'>
-                    <h3>Información de compra</h3>
-                    <div className='info-compra-datos'>
-                        <h4>{form.nombre} {form.apellido}</h4>
-                        <p>N° Documento: {form.documento}</p>
-                        <h5>Información de contacto</h5>
-                        <p>N° de Teléfono: {form.telefono}</p>
-                        <p>Email: {form.email}</p>
-                        <h5>Información para la entrega</h5>
-                        <p>{form.provincia}, {form.localidad}</p>
-                        <p>Dirección: {form.direccion}</p>
-                        <p>Código postal: {form.cp}</p>
-                    </div>
-                </div>
-                <h3>Tu código de orden es:</h3>
-                <h3>{orderId}</h3>
-            </div>
+            <Brief formData={formData} orderId={orderId}/>
         );
     }
 
@@ -154,7 +140,7 @@ export const Checkout = () => {
                         <ErrorMessage component="span" className='errors' name="email" />
                         <label htmlFor="email2">Confirmar Email</label>
                         <Field id="email2" name="email2" type="email" placeholder="Confirme su email"/>
-                        <button type='submit'>Finalizar Compra</button>
+                        <button className='checkout-button' type='submit'>Finalizar Compra</button>
                     </Form>
                 )}
             </Formik>

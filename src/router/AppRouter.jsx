@@ -14,6 +14,7 @@ import { Footer } from '../components/Footer/Footer'
 import { UserContext } from '../context/UserContext'
 import { Profile } from '../components/Profile/Profile'
 import { Signup } from '../components/Signup/Signup'
+import { Orders } from '../components/Checkout/Orders/Orders'
 
 export const AppRouter = () => {
 
@@ -38,6 +39,7 @@ export const AppRouter = () => {
 
             <Route path="/cart" element={<CartDetails />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/orders" element={<Orders />} />
 
             <Route path="/pokeapi" element={<PokeApi />} />
 
