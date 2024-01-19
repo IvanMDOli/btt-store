@@ -17,10 +17,10 @@ export const ItemCount = ( { stock, count, setCount } ) => {
     }
 
     return (
-            <div className='counter-inputs'>
-                <button value="-" onClick={minCart} className='counter-button'>-</button>
-                <span className={stock === 0 ? 'counter-display-off' : 'counter-display'}>{stock === 0 ? 0 : count}</span>
-                <button value="+" onClick={sumCart} className='counter-button'>+</button>
-            </div>
-  )
+        <div className='counter-inputs'>
+            <button value="-" onClick={minCart} className='counter-button'>-</button>
+            <span className={stock === 0 ? 'counter-display-off' : 'counter-display'}>{stock === 0 ? 0 : count}</span>
+            <button value="+" onClick={sumCart} className='counter-button'>+</button>
+        </div>
+    )
 }

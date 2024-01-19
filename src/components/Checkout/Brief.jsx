@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Icon } from '@iconify/react';
 import { Tooltip } from 'react-tooltip'
+import { Link } from 'react-router-dom';
 import 'react-tooltip/dist/react-tooltip.css'
 import './checkout.scss'
-import { Link } from 'react-router-dom';
+
 
 export const Brief = ({ formData, orderId }) => {
 
@@ -14,12 +15,10 @@ export const Brief = ({ formData, orderId }) => {
 
         setCopied(true);
 
-            setTimeout(() => {
-                setCopied(false);
-            }, 2000);
+        setTimeout(() => {
+            setCopied(false);
+        }, 2000);
     }
-
-    const ReactTooltip = React.lazy(() => import('react-tooltip'));
 
     return (
         <div className="compra-finalizada">
@@ -40,7 +39,7 @@ export const Brief = ({ formData, orderId }) => {
                 </div>
             </div>
             <div className='orderInfo'>
-                <h3>Tu código de orden es:</h3>
+                <h2>Tu código de orden es:</h2>
                 <h3>{orderId}</h3>
                 <Icon 
                     onClick={handleCopy} 

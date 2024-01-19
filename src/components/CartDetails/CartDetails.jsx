@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
-import './cartdetails.scss'
 import { CartContext } from '../../context/CartContext'
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 import { USDollar } from '../../utils/utils';
+import './cartdetails.scss'
 
 
 export const CartDetails = () => {
@@ -26,28 +26,23 @@ export const CartDetails = () => {
       <div className="cart-details">
         <h1>CART</h1>
         <hr/>
-
         <ul>
-            {
-                cart.map((item) => (
-                  
-                      <li key={item.id} className="li-details">
-                          <Link className='link-details' to={`/itemdetail/${item.id}`}>
-                          <div className='itemInfo-details'>
-                              <img src={item.img} alt={item.name}/>
-                              <div>
-                                  <h3>{item.name}</h3>
-                                  <p>{USDollar.format(item.price * item.count)}</p>
-                                  <p>Cantidad: {item.count}</p>
-                                  <p>c/u: {USDollar.format(item.price)}</p>
-                              </div>
-                          </div>
-                          </Link>
-                          <Icon onClick={() => removeItem(item.id)} className='trashIcon-details' icon="memory:trash" />
-                      </li>
-                    
-                ))
-            }
+          {cart.map((item) => ( 
+              <li key={item.id} className="li-details">
+                <Link className='link-details' to={`/itemdetail/${item.id}`}>
+                <div className='itemInfo-details'>
+                  <img src={item.img} alt={item.name}/>
+                  <div>
+                    <h3>{item.name}</h3>
+                    <p>{USDollar.format(item.price * item.count)}</p>
+                    <p>Cantidad: {item.count}</p>
+                    <p>c/u: {USDollar.format(item.price)}</p>
+                  </div>
+                </div>
+                </Link>
+                <Icon onClick={() => removeItem(item.id)} className='trashIcon-details' icon="memory:trash" />
+              </li>
+            ))}
         </ul>
         <div className="total-details">
           <div className='buttons-div'>

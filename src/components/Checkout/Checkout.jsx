@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext';
-import Swal from 'sweetalert2';
 import { addDoc, collection, documentId, getDocs, query, where, writeBatch } from 'firebase/firestore';
 import { db } from '../../firebase/config';
-import './checkout.scss'
 import { useFetch } from '../../hooks/useFetch';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Brief } from './Brief';
+import Swal from 'sweetalert2';
+import './checkout.scss'
+
 
 export const Checkout = () => {
 
@@ -16,10 +17,10 @@ export const Checkout = () => {
 
     const { cart, totalCart, clearCart } = useContext(CartContext);
 
-        const [locFilter, setLocFilter] = useState('');
-        
-        const { data: prov } = useFetch(`https://apis.datos.gob.ar/georef/api/provincias`, [true]);
-        const { data: loc } = useFetch(`https://apis.datos.gob.ar/georef/api/localidades?provincia=${locFilter}&max=999`, [locFilter]);
+    const [locFilter, setLocFilter] = useState('');
+    
+    const { data: prov } = useFetch(`https://apis.datos.gob.ar/georef/api/provincias`, [true]);
+    const { data: loc } = useFetch(`https://apis.datos.gob.ar/georef/api/localidades?provincia=${locFilter}&max=999`, [locFilter]);
 
     const provSelected = (e, setFieldValue) => {
         const selectedValue = e.target.value;

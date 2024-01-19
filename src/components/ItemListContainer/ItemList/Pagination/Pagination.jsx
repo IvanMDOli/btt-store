@@ -1,7 +1,7 @@
 import React from 'react';
 import './pagination.scss'
 
-const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
+export const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
@@ -22,5 +22,3 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
     </nav>
   );
 };
-
-export default Pagination;

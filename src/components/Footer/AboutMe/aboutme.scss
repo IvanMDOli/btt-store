@@ -1,6 +1,50 @@
 .aboutme-main {
     background-color: rgba(255, 255, 255, 0.267);
-    width: 700px;
+    width: 800px;
     height: 900px;
     padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-between;
+
+    h2, h3 {
+        width: 100%;
+        margin: 20px 0 30px 0;
+        background-color: rgb(253, 251, 234);
+        color: black;
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    img {
+        width: 350px;
+        border-radius: 5px;
+    }
+
+    p {
+        background-color: rgb(253, 251, 234);
+        color: black;
+        width: 350px;
+        padding: 10px;
+        border-radius: 10px;
+    };
+
+    .aboutme-icons {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        padding: 20px;
+        margin-top: 20px;
+        background-color: rgb(0, 0, 0, 0.3);
+        border-radius: 10px;
+
+        svg {
+            margin: 30px;
+        }
+    }
+
 }

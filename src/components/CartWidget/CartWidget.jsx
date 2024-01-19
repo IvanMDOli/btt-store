@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
-import './cartwidget.scss'
 import { Icon } from '@iconify/react'
 import { CartContext } from '../../context/CartContext'
+import './cartwidget.scss'
+
 
 export const CartWidget = () => {
 

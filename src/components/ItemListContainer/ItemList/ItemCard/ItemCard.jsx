@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import './itemcard.scss'
 import { USDollar } from '../../../../utils/utils'
+import './itemcard.scss'
+
 
 export const ItemCard = ( { item } ) => {
 

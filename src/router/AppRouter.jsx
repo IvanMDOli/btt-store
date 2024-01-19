@@ -8,52 +8,56 @@ import { CartDetails } from '../components/CartDetails/CartDetails'
 import { Checkout } from '../components/Checkout/Checkout'
 import { PokeApi } from '../components/PokeApi/PokeApi'
 import { NotFound } from '../components/NotFound/NotFound'
-import { ReadMe } from '../components/Footer/ReadMe/ReadMe'
 import { AboutMe } from '../components/Footer/AboutMe/AboutMe'
 import { Footer } from '../components/Footer/Footer'
 import { UserContext } from '../context/UserContext'
 import { Profile } from '../components/Profile/Profile'
 import { Signup } from '../components/Signup/Signup'
 import { Orders } from '../components/Checkout/Orders/Orders'
+import { WishList } from '../components/WishList/WishList'
 
 export const AppRouter = () => {
 
-    const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext)
 
   return (
     
     <BrowserRouter>
 
-        <NavBar />
+      <NavBar />
 
-        <main className='main'>
-          <Routes>
-            <Route path="/" element={<ItemListContainer />} />
+      <main className='main'>
 
-            <Route path="/profile" element={user.logged ? <Profile /> : (<Navigate to={"/login"} />)}/>
-            <Route path="/login" element={user.logged ? (<Navigate to={"/profile"} />) : <Login />}/>
-            <Route path="/signup" element={user.logged ? (<Navigate to={"/profile"} />) : <Signup />} />
+        <Routes>
 
-            <Route path="/products/:categoryId" element={<ItemListContainer />} />
-            <Route path="/itemdetail/:itemId" element={<ItemDetailContainer />} />
+          <Route path="/" element={<ItemListContainer />} />
 
-            <Route path="/cart" element={<CartDetails />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/orders" element={<Orders />} />
+          <Route path="/profile" element={user.logged ? <Profile /> : (<Navigate to={"/login"} />)}/>
+          <Route path="/login" element={user.logged ? (<Navigate to={"/profile"} />) : <Login />}/>
+          <Route path="/signup" element={user.logged ? (<Navigate to={"/profile"} />) : <Signup />} />
 
-            <Route path="/pokeapi" element={<PokeApi />} />
+          <Route path="/products/:categoryId" element={<ItemListContainer />} />
+          <Route path="/itemdetail/:itemId" element={<ItemDetailContainer />} />
 
-            <Route path="/not-found" element={<NotFound />} />
-            <Route path="/read-me" element={<ReadMe />} />
-            <Route path="/about-me" element={<AboutMe />} />
+          <Route path="/cart" element={<CartDetails />} />
+          <Route path="/wish-list" element={<WishList />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/orders" element={<Orders />} />
 
-            <Route path="*" element={<Navigate to={"/not-found"} />} />
-          </Routes>
-        </main>
+          <Route path="/pokeapi" element={<PokeApi />} />
 
-        <Footer />
+          <Route path="/not-found" element={<NotFound />} />
+          <Route path="/about-me" element={<AboutMe />} />
 
-      </BrowserRouter>
+          <Route path="*" element={<Navigate to={"/not-found"} />} />
+
+        </Routes>
+        
+      </main>
+
+      <Footer />
+
+    </BrowserRouter>
 
   )
 }

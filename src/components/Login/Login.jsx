@@ -1,10 +1,11 @@
 import { Field, Formik, Form } from 'formik'
-import React, { useContext, useState } from 'react'
-import './login.scss'
+import React, { useContext } from 'react'
 import { UserContext } from '../../context/UserContext'
 import { Link, useNavigate } from 'react-router-dom'
-import googleIcon from '/google-icon.png'
 import { Icon } from '@iconify/react';
+import googleIcon from '/google-icon.png'
+import './login.scss'
+
 
 export const Login = () => {
 
@@ -14,7 +15,7 @@ export const Login = () => {
     const handleClose = () => {
         window.scrollTo(0, 0);
         navigate('/');
-      };
+    };
 
     const handleSubmit = (e) => {
         login(e)

@@ -8,7 +8,7 @@ export const PokeApi = () => {
     const { data: pokemon } = useFetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`, [pokemonId])
 
     const handleSig = () => {
-            setPokemonId(pokemonId + 1)
+        setPokemonId(pokemonId + 1)
     }
 
     const handleAnt = () => {

@@ -88,6 +88,9 @@
         h3{
             text-align: center;
             margin: 20px 10px 10px 10px;
+            background-color: rgb(0, 0, 0, 0.5);
+            border-radius: 5px;
+            padding: 5px;
 
             &:first-child {
                 width: 100%;
@@ -115,7 +118,7 @@
         font-size: 14px;
         width: 50%;
         text-align: center;
-        margin-top: 50px;
+        margin: 30px;
 
         &:hover {
             background-color: rgb(33, 129, 255);
@@ -125,6 +128,7 @@
     h2 {
         text-align: center;
         margin-bottom: 20px;
+        width: 100%;
     }
 
     .info-compra {

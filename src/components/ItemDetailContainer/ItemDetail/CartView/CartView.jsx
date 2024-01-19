@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
-import './cartview.scss'
 import { CartContext } from '../../../../context/CartContext'
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 import { USDollar } from '../../../../utils/utils';
+import './cartview.scss'
+
 
 export const CartView = () => {
 
@@ -11,13 +12,13 @@ export const CartView = () => {
 
     if(cart.length === 0) {
         return (
-          <section className="cartview-container">
-            <div className='cartview-empty'>
-              <Icon className='empty-icon' icon="solar:cart-broken" color="white" width="100" height="100" />
-            </div>
-          </section>
+            <section className="cartview-container">
+                <div className='cartview-empty'>
+                    <Icon className='empty-icon' icon="solar:cart-broken" color="white" width="100" height="100" />
+                </div>
+            </section>
         )
-      } 
+    } 
 
     return (
         <Link className='cartview-container' to={'/cart'}>

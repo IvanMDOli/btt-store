@@ -1,18 +1,25 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
 
-    const [cart, setCart] = useState([])
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
+    const [cart, setCart] = useState(savedCart);
+
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
+    
     const addToCart = (item) => {
+    
         const cartCopy = [...cart]
 
         const isItemInCart = cartCopy.some(cartItem => {
             if(cartItem.id === item.id) {
-                
+                    
                 cartItem.count = cartItem.count + item.count;
                 setCart(cartCopy)
                 return true
@@ -26,6 +33,10 @@ export const CartProvider = ({ children }) => {
     }
 
     const clearCart = () => {
+        cart.map((e) => {
+            localStorage.removeItem(`stock_${e.id}`);
+        })
+
         setCart([])
     }
   
@@ -38,7 +49,9 @@ export const CartProvider = ({ children }) => {
     }
   
       const removeItem = (id) => {
-        setCart( cart.filter(item => item.id !== id) )
+        const updatedCart = cart.filter(item => item.id !== id);
+        setCart(updatedCart);
+        localStorage.removeItem(`stock_${id}`);
     }
 
     return(

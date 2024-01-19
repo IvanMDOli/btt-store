@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import './orders.scss'
 import { Field, Form, Formik } from 'formik'
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../../firebase/config';
 import { Icon } from '@iconify/react';
-import Swal from 'sweetalert2';
 import { USDollar } from '../../../utils/utils';
+import Swal from 'sweetalert2';
+import './orders.scss'
+
 
 export const Orders = () => {
 
@@ -39,7 +40,6 @@ export const Orders = () => {
         setLoading(false)
     };
 
-    console.log(searchOrder)
     return (
         <div className='order-container'>
             <h2>Consulta tu orden de compra:</h2>
@@ -95,7 +95,7 @@ export const Orders = () => {
                                 </li>
                             ))}
                         </ul>
-                        <h2>TOTAL DE LA ORDEN: {USDollar.format(searchOrder[0].data.total)}</h2>
+                        {searchOrder.length > 0 && (<h2>TOTAL DE LA ORDEN: {USDollar.format(searchOrder[0].data.total)}</h2>)}
                     </div>
                 )
             }

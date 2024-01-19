@@ -3,13 +3,12 @@ import { ItemList } from './ItemList/ItemList'
 import { useItems } from '../../hooks/useItems'
 import { Icon } from '@iconify/react';
 import { useParams } from 'react-router-dom';
-
 import './itemlistcontainer.scss'
+
 
 export const ItemListContainer = () => {
 
   const { categoryId } = useParams()
-
   const { items, loading } = useItems( { categoryId } )
 
   return (

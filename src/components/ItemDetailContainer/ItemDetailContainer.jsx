@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { ItemDetail } from './ItemDetail/ItemDetail';
 import { useItemsDetail } from '../../hooks/useItemsDetail';
 import { useParams } from 'react-router-dom';

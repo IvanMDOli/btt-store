@@ -1,9 +1,10 @@
 import { Field, Form, Formik } from 'formik'
 import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import './signup.scss'
 import { UserContext } from '../../context/UserContext'
 import { Icon } from '@iconify/react';
+import './signup.scss'
+
 
 export const Signup = () => {
 
@@ -13,10 +14,9 @@ export const Signup = () => {
     const handleClose = () => {
         window.scrollTo(0, 0);
         navigate('/');
-      };
+    };
 
     const handleSubmit = (e) => {
-
         register(e)
     }
 
