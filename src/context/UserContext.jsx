@@ -30,7 +30,7 @@ export const UserProvider = ({children}) => {
                     .then((docSnapshot) => {
                         const userData = docSnapshot.docs[0].data();
                         setUser({
-                            uid: userCredential.user.uid.uid,
+                            uid: userCredential.user.uid,
                             logged: true,
                             name: userData.name,
                             lastname: userData.lastname,
