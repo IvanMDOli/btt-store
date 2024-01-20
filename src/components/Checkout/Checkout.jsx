@@ -7,6 +7,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Brief } from './Brief';
 import Swal from 'sweetalert2';
 import './checkout.scss'
+import { UserContext } from '../../context/UserContext';
 
 
 export const Checkout = () => {
@@ -17,21 +18,23 @@ export const Checkout = () => {
 
     const { cart, totalCart, clearCart } = useContext(CartContext);
 
-    const [locFilter, setLocFilter] = useState('');
+    const { user } = useContext(UserContext)
+
+    const [locFilter, setLocFilter] = useState(user.province || '');
     
     const { data: prov } = useFetch(`https://apis.datos.gob.ar/georef/api/provincias`, [true]);
     const { data: loc } = useFetch(`https://apis.datos.gob.ar/georef/api/localidades?provincia=${locFilter}&max=999`, [locFilter]);
 
     const provSelected = (e, setFieldValue) => {
         const selectedValue = e.target.value;
-        setFieldValue("provincia", selectedValue);
+        setFieldValue("province", selectedValue);
         setLocFilter(selectedValue);
         };
 
     const validate = (values) => {
         const errors = {}
 
-        if(values.email != values.email2) errors.email = "Los emails tienen que coincidir."
+        if(values.email != values.email2) errors.email = "The emails have to be the same."
 
         return errors;
     }
@@ -68,11 +71,12 @@ export const Checkout = () => {
 
         batch.commit()
         .then(() => {
-            addDoc(ordersRef, orden).then((doc) => {
-                setOrderId(doc.id)
-                clearCart()
+            addDoc(ordersRef, orden)
+                .then((doc) => {
+                    setOrderId(doc.id)
+                    clearCart()
 
-                setFormData(e);
+                    setFormData(e);
         
                 Swal.fire("Gracias por tu compra!")
             });
@@ -90,15 +94,15 @@ export const Checkout = () => {
             <h1>FINALIZAR COMPRA</h1>
             <Formik
                 initialValues={{
-                    nombre: '',
-                    apellido: '',
-                    documento: '',
-                    telefono: '',
-                    provincia: '',
-                    localidad: '',
-                    direccion: '',
-                    cp: '',
-                    email : '',
+                    name: (user.name || ''),
+                    lastname: (user.lastname || ''),
+                    document: (user.document || ''),
+                    phone: (user.phone || ''),
+                    province: (user.province || ''),
+                    locality: (user.locality || ''),
+                    address: (user.address || ''),
+                    cp: (user.cp || ''),
+                    email : (user.email || ''),
                     email2 : ''
                 }}
                 onSubmit={handleSubmit}
@@ -106,42 +110,42 @@ export const Checkout = () => {
             >
                 {(formikProps) => (
                     <Form>
-                        <label htmlFor="nombre">Nombre</label>
-                        <Field id="nombre" name="nombre" type="text" placeholder="Introduzca su nombre"/>
-                        <label htmlFor="apellido">Apellido</label>
-                        <Field id="apellido" name="apellido" type="text" placeholder="Introduzca su apellido"/>
-                        <label htmlFor="documento">Documento</label>
-                        <Field id="documento" name="documento" type="number" placeholder="Introduzca su número de documento"/>
-                        <label htmlFor="telefono">Telefono</label>
-                        <Field id="telefono" name="telefono" type="number" placeholder="Introduzca su número de telefono"/>
-                        <label htmlFor="provincia">Provincia</label>
-                        <Field id="provincia" onChange={(e) => provSelected(e, formikProps.setFieldValue)} name="provincia" as="select" >
-                            <option value="" disabled hidden>Elija una provincia</option>
+                        <label htmlFor="name">Name</label>
+                        <Field id="name" name="name" type="text" placeholder="Introduce your name"/>
+                        <label htmlFor="lastname">Lastname</label>
+                        <Field id="lastname" name="lastname" type="text" placeholder="Introduce your lastname"/>
+                        <label htmlFor="document">Document</label>
+                        <Field id="document" name="document" type="number" placeholder="Introduce your document number"/>
+                        <label htmlFor="phone">Phone</label>
+                        <Field id="phone" name="phone" type="number" placeholder="Introduce your phone number"/>
+                        <label htmlFor="province">Province</label>
+                        <Field id="province" onChange={(e) => provSelected(e, formikProps.setFieldValue)} name="province" as="select" >
+                            <option value="" disabled hidden>Choose a province</option>
                             {prov && prov.provincias &&
                                 prov.provincias.sort((a, b) => a.nombre.localeCompare(b.nombre)).map((e) => 
                                     <option key={e.id} value={e.nombre} >{e.nombre}</option>
                                 )
                             }
                         </Field>
-                        <label htmlFor="localidad">Localidad</label>
-                        <Field id="localidad" name="localidad" as="select" >
-                            <option value="" disabled hidden>Elija una localidad</option>
+                        <label htmlFor="locality">Locality</label>
+                        <Field id="locality" name="locality" as="select" >
+                            <option value="" disabled hidden>Choose a locality</option>
                             {loc && loc.localidades &&
                                 loc.localidades.sort((a, b) => a.nombre.localeCompare(b.nombre)).map((e) => 
                                 <option key={e.id} value={e.nombre}>{e.nombre}</option>
                                 )
                             }
                         </Field>
-                        <label htmlFor="direccion">Dirección</label>
-                        <Field id="direccion" name="direccion" type="text" placeholder="Introduzca su direccion"/>
-                        <label htmlFor="cp">Código postal</label>
-                        <Field id="cp" name="cp" type="number" placeholder="Introduzca su código postal"/>
+                        <label htmlFor="address">Address</label>
+                        <Field id="address" name="address" type="text" placeholder="Introduce your address"/>
+                        <label htmlFor="cp">Postal code</label>
+                        <Field id="cp" name="cp" type="number" placeholder="Introduce your postal code"/>
                         <label htmlFor="email">Email</label>
-                        <Field id="email" name="email" type="email" placeholder="Introduzca su email"/>
+                        <Field id="email" name="email" type="email" placeholder="Introduce your email"/>
                         <ErrorMessage component="span" className='errors' name="email" />
-                        <label htmlFor="email2">Confirmar Email</label>
-                        <Field id="email2" name="email2" type="email" placeholder="Confirme su email"/>
-                        <button className='checkout-button' type='submit'>Finalizar Compra</button>
+                        <label htmlFor="email2">Confirm Email</label>
+                        <Field id="email2" name="email2" type="email" placeholder="Confirm your email"/>
+                        <button className='checkout-button' type='submit'>Finish shopping</button>
                     </Form>
                 )}
             </Formik>

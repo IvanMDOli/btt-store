@@ -1,20 +1,133 @@
 .profile-container {
     background-color: rgba(255, 255, 255, 0.267);
-    width: 700px;
-    height: 900px;
+    width: 800px;
+    min-height: 900px;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    
+    h1 {
+        text-shadow: 0 0 5px aqua;
+        opacity: 0.9;
+    }
 
     .userinfo {
         background-color: rgba(0, 0, 0, 0.5);
-        width: 90%;
-        height: 90%;
+        width: 95%;
+        height: 700px;
+        padding: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-between;
+
+        form {
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 20px;
+    
+            label {
+                width: 100px;
+            }
+            
+            input {
+                width: 500px;
+                margin: 5px;
+                height: 40px;
+
+                &[type=file]::-webkit-file-upload-button {
+                    background: #3498db;
+                    color: #fff;
+                    padding: 8px 16px;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    height: 100%;
+                    transition: 0.3s;
+
+                    &:hover {
+                        background: #0b87da;
+                        text-shadow: 0 0 5px white;
+                    }
+                }
+            }
+    
+            input[type=number]::-webkit-inner-spin-button, 
+            input[type=number]::-webkit-outer-spin-button { 
+                -webkit-appearance: none; 
+                margin: 0; 
+            }
+    
+            select {
+                width: 500px;
+                margin: 5px;
+                height: 30px;
+            }
+    
+            .checkout-button {
+                background-color: rgb(0, 110, 255);
+                border-radius: 3px;
+                border: 1px solid black;
+                padding: 5px;
+                font-size: 15px;
+                transition: 0.3s;
+                cursor: pointer;
+                text-decoration: none;
+                color: white;
+                text-shadow: 0 0 5px black;
+                margin: 0 10px 0 10px;
+    
+                &:hover {
+                    background-color: rgb(33, 129, 255);
+                }
+            }
+        }
+
+        button {
+            background-color: rgb(0, 110, 255);
+            border-radius: 3px;
+            border: 1px solid black;
+            font-size: 15px;
+            transition: 0.3s;
+            cursor: pointer;
+            color: white;
+            text-shadow: 0 0 5px black;
+            font-size: 14px;
+            width: 100px;
+            text-align: center;
+
+
+            &:hover {
+                background-color: rgb(33, 129, 255);
+            }
+        }
+
+        h2 {
+            width: 100%;
+            text-shadow: 0 0 5px white;
+        }
+
+        div {
+            margin: 0px 0 0px 0;
+            width: 100%;
+
+            p {
+                margin: 15px 0 15px 0;
+                background-color: rgb(253, 251, 234);
+                color: rgb(44, 44, 44);
+                width: 50%;
+                border-radius: 5px;
+                padding: 2px;
+                border: 1px solid black;
+            }
+        }
     }
 
-    button {
+    .logout {
         color: white;
         background-color: rgb(255, 68, 68);
         border-radius: 3px;
@@ -22,6 +135,8 @@
         width: 100px;
         cursor: pointer;
         transition: 0.3s;
+        margin: 30px 0 10px 0;
+        padding: 5px;
 
         &:hover {
             background-color: rgb(255, 32, 32);

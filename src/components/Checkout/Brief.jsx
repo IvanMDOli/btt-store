@@ -27,14 +27,14 @@ export const Brief = ({ formData, orderId }) => {
             <div className='info-compra'>
                 <h3>Información de compra</h3>
                 <div className='info-compra-datos'>
-                    <h4>{formData.nombre} {formData.apellido}</h4>
-                    <p>N° Documento: {formData.documento}</p>
+                    <h4>{formData.name} {formData.lastname}</h4>
+                    <p>N° Documento: {formData.document}</p>
                     <h5>Información de contacto</h5>
-                    <p>N° de Teléfono: {formData.telefono}</p>
+                    <p>N° de Teléfono: {formData.phone}</p>
                     <p>Email: {formData.email}</p>
                     <h5>Información para la entrega</h5>
-                    <p>{formData.provincia}, {formData.localidad}</p>
-                    <p>Dirección: {formData.direccion}</p>
+                    <p>{formData.province}, {formData.locality}</p>
+                    <p>Dirección: {formData.adress}</p>
                     <p>Código postal: {formData.cp}</p>
                 </div>
             </div>

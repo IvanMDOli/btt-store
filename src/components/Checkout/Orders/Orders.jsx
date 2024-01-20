@@ -68,15 +68,15 @@ export const Orders = () => {
                                     <h3>Orden ID: {result.id}</h3>
                                     <hr />
                                     <div className='order-details'>
-                                        <h4>Nombre: {result.data.cliente.apellido} {result.data.cliente.nombre}</h4>
-                                        <h5>Documento: {result.data.cliente.documento}</h5>
-                                        <h5>Teléfono: {result.data.cliente.telefono}</h5>
+                                        <h4>Nombre: {result.data.cliente.lastname} {result.data.cliente.name}</h4>
+                                        <h5>Documento: {result.data.cliente.document}</h5>
+                                        <h5>Teléfono: {result.data.cliente.phone}</h5>
                                     </div>
                                     <hr />
                                     <div className='order-details'>
-                                        <h4>Provincia: {result.data.cliente.provincia} {result.data.cliente.nombre}</h4>
-                                        <h5>Localidad: {result.data.cliente.localidad}</h5>
-                                        <h5>Dirección: {result.data.cliente.direccion}</h5>
+                                        <h4>Provincia: {result.data.cliente.province}</h4>
+                                        <h5>Localidad: {result.data.cliente.locality}</h5>
+                                        <h5>Dirección: {result.data.cliente.address}</h5>
                                         <h5>Código postal: {result.data.cliente.cp}</h5>
                                     </div>
                                     <h2>Productos encargados</h2>
