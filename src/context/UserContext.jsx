@@ -66,7 +66,6 @@ export const UserProvider = ({children}) => {
 
             updateUserDataInState(userData);
             Swal.fire("Bienvenido!");
-
         } 
         catch (error) {
             console.error("Error al obtener datos de usuario:", error.message);
